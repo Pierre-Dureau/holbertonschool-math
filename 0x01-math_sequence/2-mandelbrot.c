@@ -5,10 +5,10 @@
  *
  */
 
-void main(void)
+int main(void)
 {
 	int x, y, i;
-	double r, n = 250;
+	double n = 250;
 	int width = n * 4, height = n * 4;
 	complex c, t;
 	FILE *pgmimg;
@@ -41,4 +41,6 @@ void main(void)
 		fprintf(pgmimg, "\n");
 	}
 	fclose(pgmimg);
+
+	return (0);
 }
