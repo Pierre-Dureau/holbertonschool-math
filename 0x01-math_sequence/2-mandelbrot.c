@@ -18,23 +18,22 @@ void main(void)
 	fprintf(pgmimg, "%d %d\n", width, height);
 	fprintf(pgmimg, "255\n");
 
-	for (x = 0; x < width; x++)
+	for (y = 0; y < width; y++)
 	{
-		r = -2 + (x / n);
-		for (y = 0; y < height; y++)
+		t.im = 2 - (y / n);
+		for (x = 0; x < height; x++)
 		{
-			c.re = r;
-			c.im = 2 - (y / n);
-			for (i = 1; i < 255; i++)
+			t.re = -2 + (x / n);
+			c.re = 0;
+			c.im = 0;
+			for (i = 1; i < 100; i++)
 			{
-				t.re = c.re;
-				t.im = c.im;
 				multiplication(c, c, &c);
 				addition(c, t, &c);
 				if (c.re > 2 || c.im > 2)
 					break;
 			}
-			if (i == 255)
+			if (i == 100)
 				fprintf(pgmimg, "%d ", 255);
 			else
 				fprintf(pgmimg, "%d ", 0);
