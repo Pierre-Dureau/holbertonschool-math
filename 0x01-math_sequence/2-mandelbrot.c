@@ -20,10 +20,10 @@ int main(void)
 
 	for (y = 0; y < width; y++)
 	{
-		t.im = 2 - (y / n);
+		t.im = (y - width / 2 ) * 4.0 / width;
 		for (x = 0; x < height; x++)
 		{
-			t.re = -2 + (x / n);
+			t.re = (x - width / 2) * 4.0 / width;
 			c.re = 0;
 			c.im = 0;
 			for (i = 1; i < 255; i++)
