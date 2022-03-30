@@ -26,15 +26,33 @@ void JuliaSet(FILE *name, char name1[20], complex c, int xmax, int ymax)
 		{
 			z.im = -2 + y * 0.004;
 			z.re = -2 + x * 0.004;
-			for (i = 1; i < 50; i++)
+			for (i = 1; i < 255; i++)
 			{
 				multiplication(z, z, &z);
 				addition(z, c, &z);
 				if (z.re > 2 || z.im > 2)
 					break;
 			}
-			if (i == 50)
+			if (i == 255)
 				fprintf(name, "%d ", 255);
+			else if (i > 222)
+				fprintf(name, "%d ", 222);
+			else if (i > 200)
+				fprintf(name, "%d ", 200);
+			else if (i > 175)
+				fprintf(name, "%d ", 175);
+			else if (i > 150)
+				fprintf(name, "%d ", 150);
+			else if (i > 125)
+				fprintf(name, "%d ", 125);
+			else if (i > 100)
+				fprintf(name, "%d ", 100);
+			else if (i > 75)
+				fprintf(name, "%d ", 75);
+			else if (i > 50)
+				fprintf(name, "%d ", 50);
+			else if (i > 25)
+				fprintf(name, "%d ", 25);
 			else
 				fprintf(name, "%d ", 0);
 		}
