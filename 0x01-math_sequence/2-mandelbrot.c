@@ -26,14 +26,14 @@ int main(void)
 			t.re = (x - width / 2) * 4.0 / width;
 			c.re = 0;
 			c.im = 0;
-			for (i = 1; i < 255; i++)
+			for (i = 1; i < 1000; i++)
 			{
 				multiplication(c, c, &c);
 				addition(c, t, &c);
 				if (c.re > 2 || c.im > 2)
 					break;
 			}
-			if (i == 255)
+			if (i == 1000)
 				fprintf(pgmimg, "%d ", 255);
 			else
 				fprintf(pgmimg, "%d ", 0);
