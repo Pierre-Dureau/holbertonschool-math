@@ -33,10 +33,7 @@ int main(void)
 				if (c.re > 2 || c.im > 2)
 					break;
 			}
-			if (i == 255)
-				fprintf(pgmimg, "%d ", 255);
-			else
-				fprintf(pgmimg, "%d ", 0);
+			fprintf(pgmimg, "%d ", i);
 		}
 		fprintf(pgmimg, "\n");
 	}
