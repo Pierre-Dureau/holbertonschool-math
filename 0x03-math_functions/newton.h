@@ -3,7 +3,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 /**
  * struct s_cell - singly linked list
@@ -17,5 +16,9 @@ typedef struct s_cell
 } t_cell;
 
 t_cell *newton(double a);
+double _pow(double x, double y);
+t_cell *add_node(t_cell **head, const double elt);
+double f(double x);
+double fp(double x);
 
 #endif /* NEWTON_H */
