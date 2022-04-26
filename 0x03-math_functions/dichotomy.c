@@ -1,6 +1,30 @@
 #include "dichotomy.h"
 
 /**
+ * _pow - returns the value of x raised to the power of y
+ *
+ * @x: Double
+ * @y: Double
+ *
+ * Return: Double
+ */
+
+double _pow(double x, double y)
+{
+	double nb = 0;
+
+	if (y < 0)
+		return (-1);
+	if (y == 0)
+		return (1);
+
+	y--;
+	nb = _pow(x, y) * x;
+
+	return (nb);
+}
+
+/**
  * add_node - Add a new element to the linked list
  *
  * @head: First element of the list
@@ -32,7 +56,7 @@ t_cell *add_node(t_cell **head, const double elt)
 
 double f(double x)
 {
-	return (pow(x, 2) - 2);
+	return (_pow(x, 2) - 2);
 }
 
 /**
