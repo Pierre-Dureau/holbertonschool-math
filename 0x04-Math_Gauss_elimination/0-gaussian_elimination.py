@@ -79,9 +79,8 @@ def invers(A, b):
         for j in range(row, k + 1):
             a[i][j] /= a[i][i]
 
-    a = np.delete(a, 0, 1)
-    a = np.delete(a, 0, 1)
-    a = np.delete(a, 0, 1)
+    for d in range(0, 3):
+        a = np.delete(a, 0, 1)
 
     return a
 
