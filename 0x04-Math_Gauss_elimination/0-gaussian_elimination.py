@@ -35,8 +35,7 @@ def gaussian_elimination(A, b):
             t = a[i][k] / a[i][i]
             for y in range(s - 1, -1, -1):
                 a[y][s] *= t
-            t = format(t, '.8f')
-            x.insert(0, t)
+            x.insert(0, float("{0:.8f}".format(t)))
         else:
             l = k - 1
             while l != s:
@@ -45,7 +44,6 @@ def gaussian_elimination(A, b):
             t = a[s][k] / a[s][s]
             for y in range(s - 1, -1, -1):
                 a[y][s] *= t
-            t = format(t, '.8f')
-            x.insert(0, t)
+            x.insert(0, float("{0:.8f}".format(t)))
 
     return x
