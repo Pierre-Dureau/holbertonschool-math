@@ -4,7 +4,7 @@ def gaussian_elimination(A, b):
 
     import numpy as np
 
-    #Creation of Augmented matrix
+    # Creation of Augmented matrix
     b = np.expand_dims(b, axis=1)
     a = np.concatenate((A, b), axis=1)
     row, col = np.shape(a)
@@ -13,7 +13,7 @@ def gaussian_elimination(A, b):
         print("You can't divide by zero!")
         return None
 
-    #Gaussian elimination
+    # Gaussian elimination
     for i in range(1, row):
         if a[i][i] == 0:
             print("You can't divide by zero!")
@@ -28,7 +28,7 @@ def gaussian_elimination(A, b):
         print("You can't divide by zero!")
         return None
 
-    #Back substitution
+    # Back substitution
     x = []
     for s in range(i, -1, -1):
         if s == i:
@@ -37,10 +37,10 @@ def gaussian_elimination(A, b):
                 a[y][s] *= t
             x.insert(0, float("{0:.8f}".format(t)))
         else:
-            l = k - 1
-            while l != s:
-                a[s][k] -= a[s][l]
-                l -= 1
+            r = k - 1
+            while r != s:
+                a[s][k] -= a[s][r]
+                r -= 1
             t = a[s][k] / a[s][s]
             for y in range(s - 1, -1, -1):
                 a[y][s] *= t
