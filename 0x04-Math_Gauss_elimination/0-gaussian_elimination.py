@@ -29,21 +29,21 @@ def gaussian_elimination(A, b):
         return None
 
     # Back substitution
-    x = []
+    x = np.zeros(k)
     for s in range(i, -1, -1):
         if s == i:
             t = a[i][k] / a[i][i]
             for y in range(s - 1, -1, -1):
                 a[y][s] *= t
-            x.insert(0, float("{0:.8f}".format(t)))
+            x[s] = float("{0:.8f}".format(t))
         else:
-            r = k - 1
-            while r != s:
-                a[s][k] -= a[s][r]
-                r -= 1
+            col = k - 1
+            while col != s:
+                a[s][k] -= a[s][col]
+                col -= 1
             t = a[s][k] / a[s][s]
             for y in range(s - 1, -1, -1):
                 a[y][s] *= t
-            x.insert(0, float("{0:.8f}".format(t)))
+            x[s] = float("{0:.8f}".format(t))
 
     return x
