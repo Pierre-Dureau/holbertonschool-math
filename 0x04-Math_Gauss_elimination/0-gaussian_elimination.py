@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
-def gaussian_elimination(A, b):
+import numpy as np
 
-    import numpy as np
 
+def vector(A, b):
     # Creation of Augmented matrix
     b = np.expand_dims(b, axis=1)
     a = np.concatenate((A, b), axis=1)
@@ -20,9 +20,9 @@ def gaussian_elimination(A, b):
             return None
 
         for j in range(i, row):
-            f = -a[j][i - 1] / a[i - 1][i - 1]
+            m = -a[j][i - 1] / a[i - 1][i - 1]
             for k in range(0, col):
-                a[j][k] += a[i - 1][k] * f
+                a[j][k] += a[i - 1][k] * m
 
     if a[i][i] == 0:
         print("You can't divide by zero!")
@@ -47,3 +47,48 @@ def gaussian_elimination(A, b):
             x[s] = float("{0:.8f}".format(t))
 
     return x
+
+
+def invers(A, b):
+
+    a = np.concatenate((A, b), axis=1)
+
+    row, col = np.shape(a)
+
+    if a[0][0] == 0:
+        print("You can't divide by zero!")
+        return None
+
+    # Gaussian elimination
+    for i in range(0, row):
+        if a[i][i] == 0:
+            print("You can't divide by zero!")
+            return None
+
+        for j in range(0, row):
+            if j != i:
+                m = -a[j][i] / a[i][i]
+                for k in range(0, col):
+                    a[j][k] += a[i][k] * m
+
+    if a[i][i] == 0:
+        print("You can't divide by zero!")
+        return None
+
+    for i in range(0, row):
+        for j in range(row, k + 1):
+            a[i][j] /= a[i][i]
+
+    a = np.delete(a, 0, 1)
+    a = np.delete(a, 0, 1)
+    a = np.delete(a, 0, 1)
+
+    return a
+
+
+def gaussian_elimination(A, b):
+
+    if np.shape(A) != np.shape(b):
+        return vector(A, b)
+    else:
+        return invers(A, b)
