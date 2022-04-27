@@ -17,7 +17,10 @@ if __name__ == "__main__":
 
         return A1
 
-    A = [[-3, 2, -1], [6, -6, 7], [3, -4, 4]]
+    A = np.zeros((3, 3))
+    A[2, 0] = 1
+    A[0, 1] = 1
+    A[1, 2] = 1
     print("The matrix A:\n", A)
     print("The inverse of the matrix A:\n", inverse(A))
     print("The identity matrix (The matrix A x The inverse of the matrix A): \n", A @ inverse(A))
